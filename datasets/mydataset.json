@@ -27,11 +27,11 @@
     "dimensions": []
   },
   "versionTag": {
-    "versionNumber": 0,
+    "versionNumber": 1,
     "lastModifiedBy": {
       "login": "admin"
     },
-    "lastModifiedOn": 1596653973971
+    "lastModifiedOn": 1596653974080
   },
   "creationTag": {
     "versionNumber": 0,
@@ -42,85 +42,270 @@
   },
   "tags": [],
   "params": {
-    "table": "Lendingclub_training",
+    "writeWithCopyBadDataBehavior": "NOVERIFY_ERROR",
     "connection": "MyPostgreSQL",
+    "notReadyIfEmpty": false,
     "mode": "table",
-    "schema": ""
+    "partitioningType": "custom",
+    "normalizeDoubles": true,
+    "table": "Lendingclub_training",
+    "schema": "",
+    "tableCreationMode": "auto",
+    "writeInsertBatchSize": 10000,
+    "writeJDBCBadDataBehavior": "DISCARD_ROW",
+    "readColsWithUnknownTzAsDates": false,
+    "readSQLDateColsAsDSSDates": true
   },
   "schema": {
-    "columns": [],
+    "columns": [
+      {
+        "name": "loan_amnt",
+        "type": "bigint",
+        "originalType": "int8"
+      },
+      {
+        "name": "funded_amnt",
+        "type": "bigint",
+        "originalType": "int8"
+      },
+      {
+        "name": "term",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "int_rate",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "installment",
+        "type": "double",
+        "originalType": "float8"
+      },
+      {
+        "name": "grade",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "sub_grade",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "emp_title",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "emp_length",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "home_ownership",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "annual_inc",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "verification_status",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "pymnt_plan",
+        "type": "boolean",
+        "originalType": "bool"
+      },
+      {
+        "name": "url",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "desc",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "purpose",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "title",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "zip_code",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "addr_state",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "dti",
+        "type": "double",
+        "originalType": "float8"
+      },
+      {
+        "name": "delinq_2yrs",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "earliest_cr_line",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "inq_last_6mths",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "mths_since_last_delinq",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "mths_since_last_record",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "open_acc",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "pub_rec",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "revol_bal",
+        "type": "bigint",
+        "originalType": "int8"
+      },
+      {
+        "name": "revol_util",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "total_acc",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "initial_list_status",
+        "type": "boolean",
+        "originalType": "bool"
+      },
+      {
+        "name": "mths_since_last_major_derog",
+        "type": "string",
+        "originalType": "text"
+      },
+      {
+        "name": "policy_code",
+        "type": "bigint",
+        "originalType": "int8"
+      },
+      {
+        "name": "LoanDefault_Indicator",
+        "type": "bigint",
+        "originalType": "int8"
+      },
+      {
+        "name": "LoanID",
+        "type": "bigint",
+        "originalType": "int8"
+      }
+    ],
     "userModified": true
   },
   "metrics": {
-    "probes": [
-      {
-        "type": "basic",
-        "enabled": true,
-        "computeOnBuildMode": "PARTITION",
-        "meta": {
-          "name": "Basic data",
-          "level": 0
-        },
-        "configuration": {}
-      },
-      {
-        "type": "records",
-        "enabled": true,
-        "computeOnBuildMode": "NO",
-        "meta": {
-          "name": "Record count",
-          "level": 0
-        },
-        "configuration": {}
-      }
-    ],
     "engineConfig": {
-      "padRunsWithMetrics": false,
-      "hive": {
-        "active": true,
-        "extraConf": []
-      },
+      "python": {},
       "basic": {},
       "dss": {
         "active": true,
         "selection": {
-          "useMemTable": false,
+          "targetRatio": 0.02,
+          "maxReadUncompressedBytes": -1,
+          "ordering": {
+            "rules": [],
+            "enabled": false
+          },
+          "latestPartitionsN": 1,
           "filter": {
             "distinct": false,
             "enabled": false
           },
-          "partitionSelectionMethod": "ALL",
-          "latestPartitionsN": 1,
-          "ordering": {
-            "enabled": false,
-            "rules": []
-          },
-          "samplingMethod": "FULL",
-          "maxRecords": -1,
-          "targetRatio": 0.02,
           "withinFirstN": -1,
-          "maxReadUncompressedBytes": -1
+          "maxRecords": -1,
+          "partitionSelectionMethod": "ALL",
+          "useMemTable": false,
+          "samplingMethod": "FULL"
         }
       },
-      "sql": {
-        "active": true
+      "hive": {
+        "active": true,
+        "extraConf": []
       },
-      "impala": {
+      "sql": {
         "active": true
       },
       "spark": {
         "active": true,
         "extraConf": []
       },
-      "python": {}
+      "impala": {
+        "active": true
+      },
+      "padRunsWithMetrics": false
     },
     "displayedState": {
-      "columns": [],
       "metrics": [
         "basic:COUNT_COLUMNS",
         "records:COUNT_RECORDS"
-      ]
-    }
+      ],
+      "columns": []
+    },
+    "probes": [
+      {
+        "enabled": true,
+        "meta": {
+          "name": "Basic data",
+          "level": 0
+        },
+        "type": "basic",
+        "configuration": {},
+        "computeOnBuildMode": "PARTITION"
+      },
+      {
+        "enabled": true,
+        "meta": {
+          "name": "Record count",
+          "level": 0
+        },
+        "type": "records",
+        "configuration": {},
+        "computeOnBuildMode": "NO"
+      }
+    ]
   },
   "metricsChecks": {
     "runOnBuild": false,
