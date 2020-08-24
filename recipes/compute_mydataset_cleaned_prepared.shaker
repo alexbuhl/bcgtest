@@ -26,8 +26,26 @@
     "autoRefreshSample": false
   },
   "explorationFilters": [],
-  "exploreUIParams": {},
-  "steps": [],
+  "origin": "PREPARE_RECIPE",
+  "exploreUIParams": {
+    "autoRefresh": true
+  },
+  "steps": [
+    {
+      "preview": false,
+      "metaType": "PROCESSOR",
+      "disabled": false,
+      "type": "ColumnsSelector",
+      "params": {
+        "columns": [
+          "loan_amnt"
+        ],
+        "keep": false,
+        "appliesTo": "SINGLE_COLUMN"
+      },
+      "alwaysShowComment": false
+    }
+  ],
   "maxProcessedMemTableBytes": -1,
   "previewMode": "ALL_ROWS",
   "vizSampling": {
@@ -35,7 +53,43 @@
     "autoRefreshSample": false
   },
   "analysisColumnData": {},
-  "columnWidthsByName": {},
+  "columnWidthsByName": {
+    "funded_amnt": 100,
+    "purpose": 141,
+    "inq_last_6mths": 120,
+    "verification_status": 183,
+    "title": 232,
+    "mths_since_last_record": 180,
+    "zip_code": 100,
+    "LoanID": 100,
+    "pymnt_plan": 100,
+    "initial_list_status": 158,
+    "policy_code": 100,
+    "dti": 100,
+    "delinq_2yrs": 100,
+    "term": 100,
+    "total_acc": 100,
+    "int_rate": 100,
+    "mths_since_last_delinq": 180,
+    "sub_grade": 100,
+    "emp_length": 120,
+    "annual_inc": 120,
+    "mths_since_last_major_derog": 218,
+    "LoanDefault_Indicator": 173,
+    "emp_title": 232,
+    "home_ownership": 120,
+    "url": 300,
+    "revol_util": 100,
+    "addr_state": 100,
+    "installment": 100,
+    "grade": 100,
+    "earliest_cr_line": 135,
+    "revol_bal": 100,
+    "loan_amnt": 100,
+    "open_acc": 100,
+    "pub_rec": 100,
+    "desc": 300
+  },
   "sorting": [],
   "globalSearchQuery": "",
   "coloring": {
